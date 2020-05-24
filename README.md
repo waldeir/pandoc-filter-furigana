@@ -25,3 +25,12 @@ The result will be:
 
 ![](nihongo.png)
 
+If you want a pdf output instead, run
+
+```bash
+pandoc -F handleFurigana.py -t latex --pdf-engine=lualatex -V documentclass=ltjarticle  -V header-includes:'\usepackage{ruby}' -i myfile.md -o myfile.pdf
+```
+and you will get
+
+![](nihongoPDF.png)
+
