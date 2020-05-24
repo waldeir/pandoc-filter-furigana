@@ -1,7 +1,7 @@
 # A pandoc filter to handle furigana in markdown
 
 This pandoc filter written in python will enable pandoc to recognize and format
-furigana correctly when converting a markdown text to html.
+furigana correctly when converting a markdown text to html or pdf.
 
 You must have *pandocfilters* installed for python. 
 
