@@ -1,4 +1,5 @@
-# Simple pandoc filter to handle furigana in markdown to html conversion
+# Simple pandoc filter to handle furigana in markdown when converting to html
+# or pdf
 
 # Copyright © 2020 Waldeir
 # Permission is hereby granted, free of charge, to any person obtaining
@@ -26,7 +27,9 @@ from pandocfilters import toJSONFilter, RawInline
 
 def behead(key, value, format, meta):
   if format == 'html' and key == 'Link' and value[2][0][0] == '-':
-    return RawInline('html',"<ruby>"+ value[1][0]['c'] +"<rp>(</rp><rt>"+value[2][0][1:]+"</rt><rp>)</rp></ruby>")
+      return RawInline('html',"<ruby>"+ value[1][0]['c'] +"<rp>(</rp><rt>"+value[2][0][1:]+"</rt><rp>)</rp></ruby>")
+  elif format == 'latex' and key == 'Link' and value[2][0][0] == '-':
+      return RawInline('latex', "\\ruby{" + value[1][0]['c'] + "}{" + value[2][0][1:] + "}")
 
 if __name__ == "__main__":
   toJSONFilter(behead)
