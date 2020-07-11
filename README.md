@@ -34,3 +34,7 @@ and you will get
 
 ![](nihongoPDF.png)
 
+
+# Equation 
+
+$y = \int_0^59 x^2 \mathrm{d}x \times \sum_{h=1}^4 h^2$
